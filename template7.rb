@@ -1,4 +1,3 @@
-
 def set_source_path!
   if __FILE__ =~ %r{\Ahttps?://}
     tempdir = Dir.mktmpdir("rails-template-")
@@ -32,6 +31,9 @@ after_bundle do
   copy_file "variants/.rubocop.yml", ".rubocop.yml"
   copy_file "variants/.prettierrc.json", ".prettierrc.json"
   copy_file "variants/.rspec", ".rspec"
+
+  copy_file "rakefiles/check_db_connection.rake", "lib/tasks/db/check_db_connection.rake"
+  copy_file "rakefiles/auto_annotate_models.rake", "lib/tasks/utils/auto_annotate_models.rake"
 
   remove_dir "test"
 
