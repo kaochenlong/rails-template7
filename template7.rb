@@ -31,9 +31,12 @@ after_bundle do
   copy_file "variants/.rubocop.yml", ".rubocop.yml"
   copy_file "variants/.prettierrc.json", ".prettierrc.json"
   copy_file "variants/.rspec", ".rspec"
+  copy_file "variants/jsconfig.json", "jsconfig.json"
 
   copy_file "rakefiles/check_db_connection.rake", "lib/tasks/db/check_db_connection.rake"
   copy_file "rakefiles/auto_annotate_models.rake", "lib/tasks/utils/auto_annotate_models.rake"
+
+  copy_file "views/pages/home.html.erb", "app/views/pages/home.html.erb"
 
   remove_dir "test"
 
@@ -42,4 +45,3 @@ after_bundle do
 
   run "bundle exec rubocop -A"
 end
-
