@@ -36,12 +36,13 @@ after_bundle do
   copy_file "rakefiles/check_db_connection.rake", "lib/tasks/db/check_db_connection.rake"
   copy_file "rakefiles/auto_annotate_models.rake", "lib/tasks/utils/auto_annotate_models.rake"
 
-  copy_file "views/pages/home.html.erb", "app/views/pages/home.html.erb"
-
   remove_dir "test"
 
   generate :controller, "pages"
+
   route "root to: 'pages#home'"
+
+  copy_file "views/pages/home.html.erb", "app/views/pages/home.html.erb"
 
   run "bundle exec rubocop -A"
 end
